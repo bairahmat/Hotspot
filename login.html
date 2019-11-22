@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title id="title"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+		
+<style type="text/css"> 
+.blink { -webkit-animation: blink .99s linear infinite; 
+-moz-animation: blink .99s linear infinite; 
+-ms-animation: blink .99s linear infinite; 
+-o-animation: blink .99s linear infinite; 
+animation: blink .99s linear infinite; } @-webkit-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-moz-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-ms-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-o-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } 
+
+</style>
+</head>
+
+<body>
+<center>
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+$(endif)
+
+
+
+
+<div class="main">
+<div class="box">
+	<img src="img/logo.png" style="margin-top: -35px; width:100%;min-height:65px; margin-left: 3px">
+		<hr style="margin-top: -25px">
+            <div class="box" style="margin-top: 3px">
+                <button class="small-button1" onclick="voucher();"><b> VOUCHER</b></button>
+          		<button id="btnvrc" class="small-button3" onclick="member();"><b> MEMBER</b></button>
+            </div>
+
+<div class="box" id="infologin" >
+</div>
+$(if error)<div class="notice">$(error)</div>$(endif)
+	<form autocomplete="off" name="login" action="$(link-login-only)" method="post"
+		$(if chap-id) onSubmit="return doLogin()" $(endif)>
+			<input type="hidden" name="dst" value="$(link-orig)" />
+			<input type="hidden" name="popup" value="true" />	
+			<input class="username" name="username"type="text"/>
+			<input class="password" name="password"placeholder="Password" type="hidden" />
+			<input class="button" type="submit" value="LOGIN" />
+
+	</form>
+			<div class="tab2">
+				<button class="active" data-toggle="modal" data-target="#ModalPremium">INFO VOUCHER</button>
+			</div>
+            $(if trial == 'yes')
+            <div class="box"><font color="#fff">Akses gratis berkala </font><a style="font-weight:bold;text-decoration: underline; color:#FFF;" href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">klik
+                    di sini</a></div>
+            $(endif)
+                      
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+  <!-- Modal Reguler-->
+  <div class="modal fade" id="ModalReguler" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			<img src="img/harga.png" style="width:200px;height:auto">
+        </div>
+        <div class="modal-body">
+		<caption> PAKET REGULER </caption>
+		<br>
+<table class="table bordered" >
+    <tr>
+        <th style="text-align:center"><font color="#000000">HARGA</font></th>
+        <th style="text-align:center"><font color="#000000">BANDWIDTH</font></th>
+	<th style="text-align:center"><font color="#000000">UP TIME</font></th>
+	<th style="text-align:center"><font color="#000000">MASA AKTIF</font></th>
+      
+    </tr>
+    <tr>
+        <td align="center"><font color="#000000">Rp 5.000</font></td>
+        <td align="center"><font color="#000000"> 1 Mbps</font></td>
+		<td align="center"><font color="#000000"> 12 Jam</font></td>
+       
+    </tr>
+    <tr>
+       <td align="center"><font color="#000000">Rp 20.000</font></td>
+        <td align="center"><font color="#000000"> 1 Mbps</font></td>
+		<td align="center"><font color="#000000"> 7 Hari</font></td>
+        
+    </tr>
+    <tr>
+       <td align="center"><font color="#000000">Rp 50.000</font></td>
+        <td align="center"><font color="#000000"> 1 Mbps</font></td>
+		<td align="center"><font color="#000000"> 1 Bulan</font></td>
+        
+    </tr>
+</table>
+        <div class="modal-footer">
+			<font color="#000000">
+			<p style="font-size:14px;text-align:center;margin-top:-5px;margin-bottom:-4px;" class="blink">
+				Anda butuh internet unlimited di rumah?
+			</p>
+			<br> 
+			<center><b>Hubungi kami di 085xxxxxxxxxx</b></center>
+			</font>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ </div>
+  
+  <!-- Modal Premium-->
+  <div class="modal fade" id="ModalPremium" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			<img src="img/harga.png" style="width:200px;height:auto">
+        </div>
+        <div class="modal-body">
+<table class="table bordered" >
+    <tr>
+        <th style="text-align:center"><font color="#000000">HARGA</font></th>
+	<th style="text-align:center"><font color="#000000">UP TIME</font></th>
+	<th style="text-align:center"><font color="#000000">MASA AKTIF</font></th>
+    </tr>
+    <tr>
+        <td align="center"><font color="#000000">Rp 2.000</font></td>
+	<td align="center"><font color="#000000"> 3 Jam</font></td>
+	<td align="center"><font color="#000000"> 3 Jam</font></td>
+        
+    </tr>
+    <tr>
+       	<td align="center"><font color="#000000">Rp 5.000</font></td>
+	<td align="center"><font color="#000000"> 12 Jam</font></td>
+	<td align="center"><font color="#000000"> 1 Hari</font></td>
+        
+    </tr>
+</table>
+        <div class="modal-footer">
+			<font color="#000000">
+			<p style="font-size:14px;text-align:center;margin-top:-5px;margin-bottom:-4px;" class="blink">
+				Voucher bisa dibeli di Warnet Sameknet, Rumah Ka Handi, Warung Yudi [Keramat]
+
+			</p>
+			<br> 
+			<center><b>Info Pemasangan Hotspot Hubungi kami di 087887138482</b></center>
+			</font>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ </div>
+</center>
+<script type="text/javascript">
+<!--
+
+document.getElementById('title').innerHTML = window.location.hostname + " > login";
+
+document.login.username.focus();
+
+var infologin = document.getElementById('infologin');
+infologin.innerHTML  = "";
+
+// login page 2 mode by Laksamadi Guko
+var username = document.login.username;
+var password = document.login.password;
+
+username.placeholder = "Kode Voucher";
+
+
+function harga(){
+  harga.display = "none";
+}
+
+// set password = username
+function setpass(){
+  var user = username.value		
+  password.value = user;
+}
+
+username.onkeyup = setpass; 
+
+// change to voucher mode
+function voucher(){
+  username.focus();
+  username.onkeyup = setpass;
+  username.placeholder = "Kode Voucher";
+  username.style = "border-radius:3px;"
+  password.type = "hidden";
+  infologin.innerHTML  = "Masukkan Kode Voucher";
+}
+
+// change to member mode
+function member(){
+  username.focus();
+  username.onkeyup = "";
+  username.placeholder = "Username";
+  username.style = "border-radius:3px 3px 0px 0px;"
+  password.type= "password";
+  infologin.innerHTML  = "Masukkan Username dan Password";
+}
+//-->
+</script>
+</body>
+</html>

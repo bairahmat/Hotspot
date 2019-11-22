@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title id="title"></title>
+$(if refresh-timeout)
+<meta http-equiv="refresh" content="$(refresh-timeout-secs)">
+$(endif)
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<link rel="stylesheet" href="style.css">
+
+<script language="JavaScript">
+<!--
+$(if advert-pending == 'yes')
+    var popup = '';
+    function focusAdvert() {
+	if (window.focus) popup.focus();
+    }
+    function openAdvert() {
+	popup = open('$(link-advert)', 'hotspot_advert', '');
+	setTimeout("focusAdvert()", 1000);
+    }
+$(endif)
+    function openLogout() {
+	if (window.name != 'hotspot_status') return true;
+        open('$(link-logout)', 'hotspot_logout', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=280,height=250');
+	window.close();
+	return false;
+    }
+//-->
+</script>
+</script>
+		<style>
+.blink {
+  animation: blink-animation 1s steps(5, start) infinite;
+  -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+</style>
+</head>
+<body $(if advert-pending == 'yes')	onLoad="openAdvert()" $(endif) >
+<div class="main">
+
+<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+<p style="color:#fff;font-size:12px; text-align:center;margin-top:-15px;margin-bottom:5px">
+$(if login-by == 'trial')
+	<br><div style="text-align: center;">Welcome trial user!</div><br> Gunakan voucher akses lebih cepat dan unlimited<br><br><br>
+$(elif login-by != 'mac') 
+	<br><div style="text-align: center;">Anda sudah terhubung <br>Terimakasih sudah berlangganan internet kami</div><br>
+$(endif)
+	<p style="color:#fff;font-size:12px; text-align:center;margin-top:-15px;margin-bottom:5px">
+<table class="table2">
+    <tr><td align="right"><font color="#fff">Username</font></td><td><font color="#fff">$(username)</font></td></tr>
+    <tr><td align="right"><font color="#fff">IP Address</font></td><td><font color="#fff">$(ip)</font></td></tr>
+    <tr><td align="right"><font color="#fff">MAC Address</font></td><td><font color="#fff">$(mac)</font></td></tr>
+    <tr><td align="right"><font color="#fff">Terkoneksi</font></td><td><font color="#fff">$(uptime)</font></td></tr>
+    <tr><td align="right"><font color="#fff">UL / DL</font></td><td><font color="#fff">$(bytes-in-nice) / $(bytes-out-nice)</font></td></tr>
+$(if remain-bytes-total)
+    <tr><td align="right"><font color="#fff">Sisa Kuota</font></td><td><font color="#fff">$(remain-bytes-total-nice)</font></td></tr>
+$(endif)
+$(if session-time-left)
+    <tr><td align="right"><font color="#fff">Sisa Waktu</font></td><td><font color="#fff">$(session-time-left)</font></td></tr>
+$(endif)
+$(if blocked == 'yes')
+	 <tr><td><font color="#fff">Status</font></td><td><div style="color: #FF8080">
+<a href="$(link-advert)" target="hotspot_advert"><font color="#fff">advertisement</a> required</font></div></td></tr>
+$(elif refresh-timeout)
+	 <tr><td><font color="#fff">Refresh</td><td><font color="#fff">$(refresh-timeout)</font></td></tr>
+$(endif)
+    <tr><td><font color="#fff">Expired</td><td style="padding-top:0px; padding-left:2px;"><font color="#fff"><p class="blink"><iframe id="exp" frameborder="0" scrolling="no" src="about:blank"></iframe></font></td></tr>
+
+</table>
+$(if login-by-mac != 'yes')
+
+<!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+<button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+<!-- end of user manager link -->
+<input class="btn btn-in btn-bl" type="submit" value="LOGOUT">
+
+$(endif)
+</form>
+</div>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+
+<script type="text/javascript">
+	document.getElementById('title').innerHTML = window.location.hostname + " > status";
+//get vaidity
+    var usr = document.getElementById('user').innerHTML
+    var url = "https://xxx.mikhmon.online/status/status.php?name="; // http://ip-server-mikhmon/mikhmonv2/status/status.php?name=
+    var SessionName = "mks"
+    var getvalid = url+usr+"&session="+SessionName
+    document.getElementById('exp').src = getvalid;		
+</script>
+</body>
+</html>

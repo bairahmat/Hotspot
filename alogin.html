@@ -1,0 +1,47 @@
+<html>
+<head>
+<title id="title"></title>
+<meta http-equiv="refresh" content="2; url=$(link-redirect)">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<link rel="stylesheet" href="style.css">	
+<style type="text/css"> 
+.blink { -webkit-animation: blink .99s linear infinite; 
+-moz-animation: blink .99s linear infinite; 
+-ms-animation: blink .99s linear infinite; 
+-o-animation: blink .99s linear infinite; 
+animation: blink .99s linear infinite; } @-webkit-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-moz-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-ms-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-o-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } 
+
+</style>
+<script language="JavaScript">
+<!--
+    function startClock() {
+        $(if popup == 'true')
+        open('$(link-status)', 'hotspot_status', 'toolbar=0,location=0,directories=0,status=0,menubars=0,resizable=1,width=290,height=200');
+	$(endif)
+	location.href = './status';
+    }
+//-->
+</script>
+</head>
+<body onLoad="startClock()">
+<div class="main" style="height:350px">
+<div class="box">
+<center><img src="img/yay.gif" width="auto" height="250px"></center>
+<br>
+<tr>
+	<td align="center" valign="middle">
+	<b class="blink">LOGIN BERHASIL</b>
+	<br><br>
+	Juka belum, <a style="color:#fff" href="./login">klik di sini</a></td>
+</tr>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<script type="text/javascript">
+	document.getElementById('title').innerHTML = window.location.hostname + " > redirect";
+</script>
+</body>
+</html>

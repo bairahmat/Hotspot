@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title id="title"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<link rel="stylesheet" href="style.css">	
+<style type="text/css"> 
+.blink { -webkit-animation: blink .99s linear infinite; 
+-moz-animation: blink .99s linear infinite; 
+-ms-animation: blink .99s linear infinite; 
+-o-animation: blink .99s linear infinite; 
+animation: blink .99s linear infinite; } @-webkit-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-moz-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-ms-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @-o-keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } @keyframes blink { 0% { opacity: 1; } 50% { opacity: 1; } 50.01% { opacity: 0; } 100% { opacity: 0; } } 
+
+</style>
+
+</head>
+
+<body>
+<script language="JavaScript">
+<!--
+    function openLogin() {
+	if (window.name != 'hotspot_logout') return true;
+	open('$(link-login)', '_blank', '');
+	window.close();
+	return false;
+    }
+//-->
+</script>
+
+<div class="main">
+<div class="box">
+    <img src="img/terimakasih.gif" style="width:100%">
+	<b class="blink" style="margin-top:20px;">Anda telah keluar dari hotspot!</b> <br><br>
+</div>
+<table class="table2">
+    <tr><td align="right"><font color="#fff">Username</font></td><td><font color="#fff">$(username)</font></td></tr>
+    <tr><td align="right"><font color="#fff">IP Address</font></td><td><font color="#fff">$(ip)</font></td></tr>
+    <tr><td align="right"><font color="#fff">MAC Address</font></td><td><font color="#fff">$(mac)</font></td></tr>
+    <tr><td align="right"><font color="#fff">Terkoneksi</font></td><td><font color="#fff">$(uptime)</font></td></tr>
+    <tr><td align="right"><font color="#fff">UL / DL</font></td><td><font color="#fff">$(bytes-in-nice) / $(bytes-out-nice)</font></td></tr>
+$(if remain-bytes-total)
+    <tr><td align="right"><font color="#fff">Sisa Kuota</font></td><td><font color="#fff">$(remain-bytes-total-nice)</font></td></tr>
+$(endif)
+$(if session-time-left)
+    <tr><td align="right"><font color="#fff">Sisa Waktu</font></td><td><font color="#fff">$(session-time-left)</font></td></tr>
+$(endif)
+</table>
+<br>
+<form action="$(link-login)" name="login" onSubmit="return openLogin()">
+    <input class="btn btn-in btn-bl" type="submit" value="LOGIN KEMBALI">
+</form>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<script type="text/javascript">
+	document.getElementById('title').innerHTML = window.location.hostname + " > logout";
+</script>
+</body>
+</html>
